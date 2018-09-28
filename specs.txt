@@ -20,3 +20,14 @@ Classes:
 1) The Restaurant/Venue: Can have multiple types? Maybe a mall or something? Unclear. 
 2) The Queue: The line into the restaurant. The Restaurant has an instance of a Queue, a pointer shared between it and the threads that need to maintain or observe the line.
 3) Party: A unit in the queue to the restaurant. Can be composed of multiple people and related things.
+
+
+The Venue Interface:
+What should the Venue be able to do?
+1) Let somebody into restaurant
+2) Kick people out of restaurant
+3) Track revenue and supplies
+???
+
+Here's the plan, roughly: create a model function for the restaurant, do all the necessary setup, 
+and then I can just do 'restaurant.run' with a termination condition to get everything to work properly. perfect.
