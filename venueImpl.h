@@ -8,19 +8,17 @@ using namespace std;
 
 class VenueImpl : public Venue {
 	public:
+		VenueImpl(int c, int p, list<Patron>& l); //prices could be a map?
 		int remainingCapacity() const;
 		void addCustomer();
 		int getTime() const;
+		void setLine(list<Patron>& l); //should this be an interface function?
 
 	private:
 		const int capacity;
 		unordered_multimap<int, Patron> waitTimes; //I should probably change this
-		list<Patron> line;
+		list<Patron> line; //could construct it such that the map contains the references/pointers to the vector memory location
 		vector<Patron> customers;
-		int time;
-		//int curr time
-		//list
-		//curr capacity?
-		//have regular container for all people and have values be pointers to Patrons 
-
+		int currTime; //possible that this is unnecessary?
+		int prices;  //could be a map, for different products? That could be what's specified by the category of location?
 };
