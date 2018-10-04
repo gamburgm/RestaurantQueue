@@ -8,8 +8,20 @@ int VenueImpl::remainingCapacity() const {
 }
 
 void VenueImpl::addCustomer() {
-	//get top item off linked list
-	//add to vector and multimap	
+	Patron* p = line.back();
+	line.pop_back();
+	customers.push_back(p);
+	waitTimes.insert(pair<int, Patron> (p->timeSpent, p));
+
+	//lots of issues: is line a pointer to a list? does pop destroy p?
+	//do I need to initialize the vector? Am I adding waitTimes correctly?
+}
+
+void VenueImpl::removeCustomers(int time) {
+	//need to save the patron values somehow to return or transmit somehow to external thread?
+	//is the external thread actually necessary? How does it even get implmeneted?
+	//I can worry about that later.
+	waitTimes.erase(time);
 }
 
 //is this necessary? I think so?

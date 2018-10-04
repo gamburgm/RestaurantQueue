@@ -13,6 +13,7 @@ class VenueImpl : public Venue {
 		void addCustomer();
 		int getTime() const;
 		void setLine(list<Patron>& l); //should this be an interface function?
+		void removeCustomers(int time);
 
 	private:
 		const int capacity;
