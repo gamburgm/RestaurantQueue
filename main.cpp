@@ -1,9 +1,19 @@
 #include <iostream>
-//#include "venue.h"
+#include <unistd.h>
+#include "venue.h"
+#include "restaurant.h"
 //#include "patron.h"
-//#include "line.h"
 
-pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+
+int main(int argc, char** argv) {
+	Restaurant(10, 5);
+
+	return 0;
+}
+
+/*
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t condition = PTHREAD_COND_INITIALIZER;
 
 void *printMessage(void *);
 
@@ -12,6 +22,9 @@ int main(int argc, char** argv) {
 
 	int iret1 = pthread_create( &thread1, NULL, printMessage, (void *) "Hello!"); 
 	int iret2 = pthread_create( &thread2, NULL, printMessage, (void *) "What's up?");
+
+	sleep(1);
+	pthread_cond_signal( &condition );
 
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
@@ -25,8 +38,17 @@ int main(int argc, char** argv) {
 
 void *printMessage(void *ptr) {
 	for (int i = 0; i < 10; i++) {
-		pthread_mutex_lock(&m);
+		pthread_mutex_lock( &mutex );
+		pthread_cond_signal( &condition );
 		printf("%s\n", (char *) ptr);
-		pthread_mutex_unlock(&m);
+		pthread_cond_wait( &condition, &mutex );
+		pthread_mutex_unlock( &mutex );
+
+
 	}
+		pthread_mutex_lock( &mutex );
+		pthread_cond_signal( &condition );
+		printf("%s\n", (char *) ptr);
+		pthread_mutex_unlock( &mutex );
 }
+*/

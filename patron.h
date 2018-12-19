@@ -6,7 +6,10 @@ using namespace std;
 class Patron {
 	public:
 		Patron(string party, int s, int time);
-		//tbh what functions would be useful? What would somebody want to know about Patrons?
+		int getTimeSpent() const;
+		int getSize() const;
+		string getName() const;
+		
 
 	private:
 		const string nameOfParty;
