@@ -1,3 +1,6 @@
+#ifndef PATRON_H
+#define PATRON_H
+
 #include <iostream>
 #include <string>
 
@@ -6,7 +9,11 @@ using namespace std;
 class Patron {
 	public:
 		Patron(string party, int s, int time);
-		//tbh what functions would be useful? What would somebody want to know about Patrons?
+		Patron(const Patron &p);
+		int getTimeSpent() const;
+		int getSize() const;
+		string getName() const;
+		
 
 	private:
 		const string nameOfParty;
@@ -14,3 +21,5 @@ class Patron {
 		const int timeSpent; //should rename
 		//what other fields would be useful?
 };
+
+#endif
