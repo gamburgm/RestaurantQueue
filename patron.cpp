@@ -2,11 +2,7 @@
 
 using namespace std;
 
-Patron::Patron(string party, int s, int time) {
-	nameOfParty = party;
-	size = s;
-	timeSpent = time;
-}
+Patron::Patron(string p, int s, int t) : nameOfParty(p), size(s), timeSpent(t) {}
 
 int Patron::getTimeSpent() const {
 	return timeSpent;

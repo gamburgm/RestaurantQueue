@@ -1,4 +1,9 @@
+#ifndef RESTAURANT_H
+#define RESTAURANT_H
+
 #include "venue.h"
+#include <iostream>
+#include <map>
 
 using namespace std;
 //could use the decorator pattern to supply the ability to return data about who's visited
@@ -9,19 +14,22 @@ class Restaurant : public Venue {
 		Restaurant(int capacity, int price);
 		int remainingCapacity() const;
 		int getTime() const;
-		list<Patron>& getLine() const;
 		int getProfit() const;
 		void tick();
-		void removeCustomers(int time);
-		void addCustomer();
+		void addPatron(string name, int size, int time, bool priority);
+		
 
 	private:
+		void addCustomer();
+		void removeCustomers(int time);
+
 		const int capacity;
 		int remainingSeats;
-		unordered_multimap<int, Patron> waitTimes; //I should probably change this
-		list<Patron> line; //could construct it such that the map contains the references/pointers to the vector memory location
-		//vector<Patron> customers;
+		multimap<int, Patron*> waitTimes; //I should probably change this
+		list<Patron*> line; //could construct it such that the map contains the references/pointers to the vector memory location
 		int currTime; //possible that this is unnecessary?
 		int prices;  //could be a map, for different products? That could be what's specified by the category of location?
 		int profit;
 };
+
+#endif
