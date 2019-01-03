@@ -2,6 +2,7 @@
 #define RESTAURANT_H
 
 #include "venue.h"
+#include "mutexes.h"
 #include <iostream>
 #include <map>
 

@@ -14,7 +14,9 @@ void Controller::play() {
 		(*input) >> partyName;
 		(*input) >> size >> time;
 
+		pthread_mutex_lock( &forTheLine );
 		venue->addPatron(partyName, size, time, false);
+		pthread_mutex_unlock( &forTheLine );
 	}
 }
 
